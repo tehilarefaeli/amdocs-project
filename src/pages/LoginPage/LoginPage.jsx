@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Input, Button } from '@material-ui/core';
 import { userActions } from '../../_actions';
 import './login-page.scss';
 
@@ -16,9 +16,10 @@ function LoginPage() {
     const dispatch = useDispatch();
     const location = useLocation();
 
+
     // reset login status
-    useEffect(() => { 
-        dispatch(userActions.logout()); 
+    useEffect(() => {
+        dispatch(userActions.logout());
     }, []);
 
     function handleChange(e) {
@@ -43,23 +44,23 @@ function LoginPage() {
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')} />
+                    <Input type="text" name="username" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')} />
                     {submitted && !username &&
                         <div className="invalid-feedback">Username is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
+                    <Input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
                     {submitted && !password &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary">
+                    <Button className="btn btn-primary">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
-                    </button>
+                    </Button>
                     <Link to="/register" className="btn btn-link">Register</Link>
                 </div>
             </form>

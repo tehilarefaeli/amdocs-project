@@ -8,6 +8,8 @@ import { PrivateRoute } from '../_components';
 import { HomePage } from 'root/pages/HomePage';
 import { LoginPage } from 'root/pages/LoginPage';
 import { RegisterPage } from 'root/pages/RegisterPage';
+import { FormPropsTextFields } from 'root/pages/LoginPage';
+
 
 function App() {
     const alert = useSelector(state => state.alert);
