@@ -41,9 +41,11 @@ function RegisterPage() {
                 <div className="form-group">
                     <label>First Name</label>
                     <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
-                    {submitted && !user.firstName &&
+                    {
+                        submitted && !user.firstName &&
                         <div className="invalid-feedback">First Name is required</div>
                     }
+
                 </div>
                 <div className="form-group">
                     <label>Last Name</label>
